@@ -117,22 +117,23 @@ select * from Courses where Name = 'Math';
 --insert into Students (Name, BirthDate, Address, Email) 
 --values ('Habib', '2002-05-20', 'Amman', 'habib@gmail.com');
 
-select * 
+select Students.Name,  familyInfo.fatherName
 from Students
 join familyInfo on Students.ID = familyInfo.studentID;
 
-select * 
+select Students.Name, Courses.Name
 from Students
 join Enrollments on Students.ID = Enrollments.StudentID
 join Courses on Enrollments.CourseID = Courses.ID
 where Courses.Name = 'Math';
 
-select *
+select Students.Name, Assignments.name, Assignments.States
 from Students
 join Assignments on Students.ID = Assignments.StudentID
 where Assignments.Name = 'Programming Assignment' and Assignments.States = 'pass';
 
-select * 
+select Students.Name, Attendance.AttendanceDate, Attendance.Type, Attendance.Reason  
 from Students
 join Attendance on Students.ID = Attendance.StudentID
 where Attendance.Type = 'leaving' and Attendance.AttendanceDate between '2025-01-01' and '2025-01-05';
+
